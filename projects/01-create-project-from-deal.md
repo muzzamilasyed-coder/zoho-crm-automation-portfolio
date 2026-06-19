@@ -1,7 +1,32 @@
+# Create Project on Zoho Projects from CRM Deal
+
+## What this does
+When a sales Deal is closed, this function automatically creates a linked
+project in Zoho Projects, populates 11 custom fields from CRM, assigns the
+client company, links team members, and triggers a webhook fallback if a
+permission error occurs — all without any manual steps.
+
+## Problem it solved
+Every closed deal required a project manager to manually create a project,
+copy across 11 fields, assign users, and link the client. This took 15–20
+minutes per deal and was prone to missing fields.
+
+## Outcome
+- 11 custom fields auto-populated on every project creation
+- Zero manual data-entry steps for project initiation
+- Webhook fallback ensured no deal was left without a project
+
+## Tech used
+Deluge Scripting · Zoho CRM · Zoho Projects · REST API · Webhooks
+
+## Code
+
+```javascript
 // Function: Create Project on Zoho Projects from CRM Deal
-// Purpose: On Deal close, creates a linked Zoho Project, populates 11 custom fields,
-//          assigns client company, links users, sets project owner via ZUID,
-//          triggers webhook fallback on permission error.
+// Purpose: On Deal close, creates a linked Zoho Project,
+// populates 11 custom fields, assigns client company,
+// links users, sets project owner via ZUID,
+// triggers webhook fallback on permission error.
 
 try
 {
@@ -254,3 +279,11 @@ catch(e)
         message: "ID: " + deal_id + " | Error: " + e
     ]
 }
+```
+
+## Skills demonstrated
+- Cross-platform REST API integration
+- Null-handling and defensive coding
+- Bidirectional CRM ↔ Project data sync
+- Webhook fallback error handling
+- Production deployment in live B2B environment
